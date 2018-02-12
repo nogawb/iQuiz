@@ -12,6 +12,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     let list = ["Mathematics", "Marvel Super Heroes", "Science"]
     
+    @IBAction func settingsButton(_ sender: Any) {
+       let alert = UIAlertController(title: "Setting Title", message: "If I had it it would be here", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        
+        present(alert, animated: true, completion: nil)
+        
+    }
+    
+    
+    
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         return(list.count)
