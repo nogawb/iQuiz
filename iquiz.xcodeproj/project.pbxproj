@@ -12,10 +12,10 @@
 		99820C42203161480060BF81 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99820C40203161480060BF81 /* Main.storyboard */; };
 		99820C44203161480060BF81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99820C43203161480060BF81 /* Assets.xcassets */; };
 		99820C47203161480060BF81 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99820C45203161480060BF81 /* LaunchScreen.storyboard */; };
-		99820C51203169100060BF81 /* Marvel Super Heroes.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 99820C4E203169100060BF81 /* Marvel Super Heroes.jpg */; };
-		99820C52203169100060BF81 /* Mathematics.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 99820C4F203169100060BF81 /* Mathematics.jpg */; };
-		99820C53203169100060BF81 /* Science.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 99820C50203169100060BF81 /* Science.jpg */; };
 		99820C5520316A650060BF81 /* ViewControllerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99820C5420316A650060BF81 /* ViewControllerTableViewCell.swift */; };
+		99820C59203176BF0060BF81 /* Mathematics.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 99820C56203176BF0060BF81 /* Mathematics.jpg */; };
+		99820C5A203176BF0060BF81 /* Science.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 99820C57203176BF0060BF81 /* Science.jpg */; };
+		99820C5B203176BF0060BF81 /* Marvel Super Heroes.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 99820C58203176BF0060BF81 /* Marvel Super Heroes.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,10 +26,10 @@
 		99820C43203161480060BF81 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		99820C46203161480060BF81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		99820C48203161480060BF81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		99820C4E203169100060BF81 /* Marvel Super Heroes.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Marvel Super Heroes.jpg"; path = "../../../../../../Desktop/Marvel Super Heroes.jpg"; sourceTree = "<group>"; };
-		99820C4F203169100060BF81 /* Mathematics.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Mathematics.jpg; path = ../../../../../../Desktop/Mathematics.jpg; sourceTree = "<group>"; };
-		99820C50203169100060BF81 /* Science.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Science.jpg; path = ../../../../../../Desktop/Science.jpg; sourceTree = "<group>"; };
 		99820C5420316A650060BF81 /* ViewControllerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTableViewCell.swift; sourceTree = "<group>"; };
+		99820C56203176BF0060BF81 /* Mathematics.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Mathematics.jpg; sourceTree = "<group>"; };
+		99820C57203176BF0060BF81 /* Science.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Science.jpg; sourceTree = "<group>"; };
+		99820C58203176BF0060BF81 /* Marvel Super Heroes.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Marvel Super Heroes.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,9 +68,9 @@
 				99820C5420316A650060BF81 /* ViewControllerTableViewCell.swift */,
 				99820C43203161480060BF81 /* Assets.xcassets */,
 				99820C45203161480060BF81 /* LaunchScreen.storyboard */,
-				99820C4E203169100060BF81 /* Marvel Super Heroes.jpg */,
-				99820C4F203169100060BF81 /* Mathematics.jpg */,
-				99820C50203169100060BF81 /* Science.jpg */,
+				99820C58203176BF0060BF81 /* Marvel Super Heroes.jpg */,
+				99820C56203176BF0060BF81 /* Mathematics.jpg */,
+				99820C57203176BF0060BF81 /* Science.jpg */,
 				99820C48203161480060BF81 /* Info.plist */,
 			);
 			path = iquiz;
@@ -135,11 +135,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99820C51203169100060BF81 /* Marvel Super Heroes.jpg in Resources */,
-				99820C52203169100060BF81 /* Mathematics.jpg in Resources */,
 				99820C47203161480060BF81 /* LaunchScreen.storyboard in Resources */,
 				99820C44203161480060BF81 /* Assets.xcassets in Resources */,
-				99820C53203169100060BF81 /* Science.jpg in Resources */,
+				99820C5A203176BF0060BF81 /* Science.jpg in Resources */,
+				99820C59203176BF0060BF81 /* Mathematics.jpg in Resources */,
+				99820C5B203176BF0060BF81 /* Marvel Super Heroes.jpg in Resources */,
 				99820C42203161480060BF81 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
