@@ -13,8 +13,12 @@ class AnswerScreenViewController: UIViewController {
     @IBOutlet weak var answerText: UILabel!
     
     
-    @IBAction func finishTest(_ sender: Any) {
-        performSegue(withIdentifier: "answerToFinish", sender: self)
+    @IBAction func nextQuestion(_ sender: Any) {
+        if (questionIndex > sampleQuestions.count) {
+            performSegue(withIdentifier: "answerToFinish", sender: self)
+        } else {
+            performSegue(withIdentifier: "answerToQuestion", sender: self)
+        }
     }
     
     
@@ -25,12 +29,17 @@ class AnswerScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         if (correctAnswer) {
             answerText.text = "Right!"
-            numberCorrect = numberCorrect + 1
-            
         } else {
             answerText.text = "Wrong!"
+        }
+        
+        correctAnswer = false
+        
+        if (questionIndex > sampleQuestions.count) {
+            
         }
         // Do any additional setup after loading the view.
     }

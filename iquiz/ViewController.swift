@@ -8,10 +8,15 @@
 
 import UIKit
     var myIndex = 0
+    var questionIndex = 0
+    var numberCorrect = 0
     let list = ["Mathematics", "Marvel Super Heroes", "Science"]
-    let sampleQuestions = ["question 1", "question 2", "question 3", "question 4", "question 5", "question 6"]
-    let sampleAnswers = ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]
-    
+    let sampleQuestions = ["1+1=", "3+1=", "4-2= ", "2-1=", "4/2=", "4-1="]
+    let sampleAnswers = ["1", "2", "3", "4"]
+    let sampleCorrectAnswers = ["2", "3", "2", "1", "2", "3"]
+    var correctAnswer = false
+
+
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
@@ -51,6 +56,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        questionIndex = 0
+        numberCorrect = 0
+        myIndex = 0
+        correctAnswer = false
         // Do any additional setup after loading the view, typically from a nib.
     }
 

@@ -10,13 +10,16 @@ import UIKit
 
 class FinishedScreenViewController: UIViewController {
     
+    
+    @IBOutlet weak var finishedLabel: UILabel!
+    
     @IBAction func finishHome(_ sender: Any) {
         performSegue(withIdentifier: "finishToHome", sender: self)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        finishedLabel.text = "You got " + String(numberCorrect) + "/" + String(sampleQuestions.count) + " correct!"
         // Do any additional setup after loading the view.
     }
 

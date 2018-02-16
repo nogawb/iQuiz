@@ -175,11 +175,6 @@
                                     <action selector="questionHome:" destination="xsH-lW-kfn" eventType="touchUpInside" id="Mz7-7P-HeH"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vdQ-CS-j6m">
-                                <rect key="frame" x="265" y="583" width="98" height="62"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Next Question"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="a4D-nG-Atg"/>
@@ -217,12 +212,12 @@
                                     <action selector="answerHome:" destination="FL7-4h-1hv" eventType="touchUpInside" id="X7c-4u-mNO"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xmN-Pu-mVg">
-                                <rect key="frame" x="141" y="572" width="102" height="67"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xqM-bM-gk2">
+                                <rect key="frame" x="266" y="597" width="102" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Finish Test"/>
+                                <state key="normal" title="Next Question "/>
                                 <connections>
-                                    <action selector="finishTest:" destination="FL7-4h-1hv" eventType="touchUpInside" id="8rE-rB-0rc"/>
+                                    <action selector="nextQuestion:" destination="FL7-4h-1hv" eventType="touchUpInside" id="N7H-Ml-w1f"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -233,6 +228,7 @@
                         <outlet property="answerText" destination="Cq6-vb-Im6" id="vdl-nR-8sR"/>
                         <segue destination="8cD-Kg-dUc" kind="show" identifier="answerToFinish" id="k4b-TM-eMD"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="answerToHome" id="2lf-Q1-XbH"/>
+                        <segue destination="xsH-lW-kfn" kind="show" identifier="answerToQuestion" id="qbl-LS-vYn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UaO-Ky-mWe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -267,6 +263,7 @@
                         <viewLayoutGuide key="safeArea" id="5dc-8Y-0fb"/>
                     </view>
                     <connections>
+                        <outlet property="finishedLabel" destination="f0P-Y8-MUg" id="lNk-cC-A3G"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="finishToHome" id="HlQ-Bm-Jrz"/>
                     </connections>
                 </viewController>
@@ -276,6 +273,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="2lf-Q1-XbH"/>
+        <segue reference="jpB-bD-Iu8"/>
+        <segue reference="qbl-LS-vYn"/>
+        <segue reference="2GP-qO-uoJ"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -8,10 +8,8 @@
 
 import UIKit
 
-var correctAnswer = false
-var numberCorrect = 0
 class QuestionScreenViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+    var selectedAnswer = ""
     
     @IBOutlet weak var question: UILabel!
     
@@ -29,14 +27,23 @@ class QuestionScreenViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        self.selectedAnswer = sampleAnswers[indexPath.row - 1]
     }
     
     //submit answer button
     //when button is clicked transition to the answer screen
     
     @IBAction func submitAnswer(_ sender: Any) {
+        NSLog("The correct ans is " + sampleCorrectAnswers[questionIndex] + "// The selected answer is " + selectedAnswer)
+        if (selectedAnswer == sampleCorrectAnswers[questionIndex]) {
+            correctAnswer = true
+            numberCorrect = numberCorrect + 1
+        }
+        
+        questionIndex = questionIndex + 1
+        
         performSegue(withIdentifier: "questionToAnswer", sender: self)
+        
     }
     
     @IBAction func questionHome(_ sender: Any) {
@@ -47,7 +54,7 @@ class QuestionScreenViewController: UIViewController, UITableViewDelegate, UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        question.text = "this is the question"
+        question.text = sampleQuestions[questionIndex]
         // Do any additional setup after loading the view.
     }
 
