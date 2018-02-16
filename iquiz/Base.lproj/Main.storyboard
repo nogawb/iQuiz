@@ -133,25 +133,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kxK-8w-3RA">
-                                <rect key="frame" x="0.0" y="202" width="375" height="374"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="questionCell" id="1J5-h1-xfa">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1J5-h1-xfa" id="nEB-LZ-yVA">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="xsH-lW-kfn" id="oaF-fg-WZb"/>
-                                    <outlet property="delegate" destination="xsH-lW-kfn" id="xqn-3b-PQD"/>
-                                </connections>
-                            </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F7O-SD-RLB">
                                 <rect key="frame" x="0.0" y="51" width="375" height="143"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -175,11 +156,47 @@
                                     <action selector="questionHome:" destination="xsH-lW-kfn" eventType="touchUpInside" id="Mz7-7P-HeH"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ihc-0x-NDx">
+                                <rect key="frame" x="115" y="259" width="145" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="button 1"/>
+                                <connections>
+                                    <action selector="chosen1:" destination="xsH-lW-kfn" eventType="touchUpInside" id="ac3-gL-pS7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tm4-Ge-lUl">
+                                <rect key="frame" x="115" y="332" width="145" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button 2"/>
+                                <connections>
+                                    <action selector="chosen1:" destination="xsH-lW-kfn" eventType="touchUpInside" id="0Fq-mf-IyW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C0K-gL-mT1">
+                                <rect key="frame" x="115" y="513" width="145" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button 4"/>
+                                <connections>
+                                    <action selector="chosen1:" destination="xsH-lW-kfn" eventType="touchUpInside" id="eja-E9-Ae9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bxx-d5-dyl">
+                                <rect key="frame" x="85" y="416" width="215" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button 3"/>
+                                <connections>
+                                    <action selector="chosen1:" destination="xsH-lW-kfn" eventType="touchUpInside" id="xqC-HW-oKC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="a4D-nG-Atg"/>
                     </view>
                     <connections>
+                        <outlet property="answer1" destination="Ihc-0x-NDx" id="SDL-a2-daf"/>
+                        <outlet property="answer2" destination="tm4-Ge-lUl" id="gw4-Ro-K6d"/>
+                        <outlet property="answer3" destination="bxx-d5-dyl" id="E3G-sD-gbc"/>
+                        <outlet property="answer4" destination="C0K-gL-mT1" id="qzq-i2-Uia"/>
                         <outlet property="question" destination="F7O-SD-RLB" id="txz-q9-YTW"/>
                         <segue destination="FL7-4h-1hv" kind="show" identifier="questionToAnswer" id="jpB-bD-Iu8"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="questionToHome" id="2GP-qO-uoJ"/>

@@ -14,7 +14,7 @@ class AnswerScreenViewController: UIViewController {
     
     
     @IBAction func nextQuestion(_ sender: Any) {
-        if (questionIndex > sampleQuestions.count) {
+        if (questionIndex >= sampleQuestions.count) {
             performSegue(withIdentifier: "answerToFinish", sender: self)
         } else {
             performSegue(withIdentifier: "answerToQuestion", sender: self)

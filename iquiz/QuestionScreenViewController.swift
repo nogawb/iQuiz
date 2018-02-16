@@ -8,26 +8,21 @@
 
 import UIKit
 
-class QuestionScreenViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class QuestionScreenViewController: UIViewController {
     var selectedAnswer = ""
     
     @IBOutlet weak var question: UILabel!
     
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
-        return(sampleAnswers.count)
-    }
+    @IBOutlet weak var answer1: UIButton!
     
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
-    {
-        let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "questionCell")
-        cell.textLabel?.text = sampleAnswers[indexPath.row]
-        
-        return(cell)
-    }
+    @IBOutlet weak var answer2: UIButton!
     
-    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.selectedAnswer = sampleAnswers[indexPath.row - 1]
+    @IBOutlet weak var answer3: UIButton!
+    
+    @IBOutlet weak var answer4: UIButton!
+    
+    @IBAction func chosen1(_ sender: Any) {
+        selectedAnswer = ((sender as AnyObject).titleLabel??.text!)!
     }
     
     //submit answer button
@@ -55,6 +50,11 @@ class QuestionScreenViewController: UIViewController, UITableViewDelegate, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         question.text = sampleQuestions[questionIndex]
+        answer1.setTitle(sampleAnswers[0], for: .normal)
+        answer2.setTitle(sampleAnswers[1], for: .normal)
+        answer3.setTitle(sampleAnswers[2], for: .normal)
+        answer4.setTitle(sampleAnswers[3], for: .normal)
+        
         // Do any additional setup after loading the view.
     }
 
