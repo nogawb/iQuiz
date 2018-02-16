@@ -243,6 +243,7 @@
                     </view>
                     <connections>
                         <outlet property="answerText" destination="Cq6-vb-Im6" id="vdl-nR-8sR"/>
+                        <outlet property="nextButton" destination="xqM-bM-gk2" id="HII-MY-DEK"/>
                         <segue destination="8cD-Kg-dUc" kind="show" identifier="answerToFinish" id="k4b-TM-eMD"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="answerToHome" id="2lf-Q1-XbH"/>
                         <segue destination="xsH-lW-kfn" kind="show" identifier="answerToQuestion" id="qbl-LS-vYn"/>
@@ -275,11 +276,19 @@
                                     <action selector="finishHome:" destination="8cD-Kg-dUc" eventType="touchUpInside" id="Ugb-lt-rNp"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2C0-N5-c37">
+                                <rect key="frame" x="51" y="391" width="235" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="5dc-8Y-0fb"/>
                     </view>
                     <connections>
+                        <outlet property="feedback" destination="2C0-N5-c37" id="U1l-r2-Zs6"/>
                         <outlet property="finishedLabel" destination="f0P-Y8-MUg" id="lNk-cC-A3G"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="finishToHome" id="HlQ-Bm-Jrz"/>
                     </connections>
@@ -290,8 +299,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="jpB-bD-Iu8"/>
-        <segue reference="qbl-LS-vYn"/>
-        <segue reference="2GP-qO-uoJ"/>
+        <segue reference="gs5-B7-qZ3"/>
+        <segue reference="HlQ-Bm-Jrz"/>
     </inferredMetricsTieBreakers>
 </document>

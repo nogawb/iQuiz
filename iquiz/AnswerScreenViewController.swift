@@ -12,6 +12,7 @@ class AnswerScreenViewController: UIViewController {
 
     @IBOutlet weak var answerText: UILabel!
     
+    @IBOutlet weak var nextButton: UIButton!
     
     @IBAction func nextQuestion(_ sender: Any) {
         if (questionIndex >= sampleQuestions.count) {
@@ -38,8 +39,10 @@ class AnswerScreenViewController: UIViewController {
         
         correctAnswer = false
         
-        if (questionIndex > sampleQuestions.count) {
-            
+        if (questionIndex >= sampleQuestions.count) {
+            nextButton.setTitle("Finish Test", for: .normal)
+        } else {
+           nextButton.setTitle("Next Question", for: .normal)
         }
         // Do any additional setup after loading the view.
     }

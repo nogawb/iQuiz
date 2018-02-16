@@ -13,6 +13,8 @@ class FinishedScreenViewController: UIViewController {
     
     @IBOutlet weak var finishedLabel: UILabel!
     
+    @IBOutlet weak var feedback: UILabel!
+    
     @IBAction func finishHome(_ sender: Any) {
         performSegue(withIdentifier: "finishToHome", sender: self)
     }
@@ -20,6 +22,11 @@ class FinishedScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         finishedLabel.text = "You got " + String(numberCorrect) + "/" + String(sampleQuestions.count) + " correct!"
+        if (numberCorrect <= sampleQuestions.count / 2) {
+            feedback.text = "DO BETTER!"
+        } else {
+            feedback.text = "NICE JOB!"
+        }
         // Do any additional setup after loading the view.
     }
 
