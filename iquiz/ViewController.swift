@@ -7,6 +7,21 @@
 //
 
 import UIKit
+
+    struct Subjects: Decodable{
+        let title: String
+        let desc: String
+        let questions: [Question]
+    }
+
+    struct Question: Decodable{
+        let text: String
+        let answer: String
+        let answers: [String]
+    }
+
+    let url = URL(string: "http://tednewardsandbox.site44.com/questions.json")
+    var jsonData: [Subjects]? = nil
     var myIndex = 0
     var questionIndex = 0
     var numberCorrect = 0
@@ -15,6 +30,8 @@ import UIKit
     let sampleAnswers = ["1", "2", "3", "4"]
     let sampleCorrectAnswers = ["2", "3", "2", "1", "2", "3"]
     var correctAnswer = false
+    var titles: [String] = []
+    var descriptions: [String] = []
 
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -54,13 +71,48 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         performSegue(withIdentifier: "categoryToQuestion", sender: self)
     }
     
+    func downloadQuiz() {
+        
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         questionIndex = 0
         numberCorrect = 0
         myIndex = 0
         correctAnswer = false
-        // Do any additional setup after loading the view, typically from a nib.
+        /*let url = URL(string: "http://tednewardsandbox.site44.com/questions.json")
+        let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
+            if error != nil
+            {
+                print("ERROR")
+            }
+            else
+            {
+               if let content = data
+               {
+                    do
+                    {
+                       // let myJson = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
+                        //print(myJson)
+                        //let subjects = try JSONDecoder().decode(Subjects.self, from: content)
+                        //print(subjects)
+                        /*self.jsonData = subjects
+                        for s in subjects{
+                            self.titles.append(s.title)
+                            self.descriptions.append(s.desc)
+                        } */
+                    }
+                    catch
+                    {
+                        
+                    }
+                }
+            }
+            
+        }
+        task.resume()*/
     }
 
     override func didReceiveMemoryWarning() {

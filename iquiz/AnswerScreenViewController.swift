@@ -10,7 +10,11 @@ import UIKit
 
 class AnswerScreenViewController: UIViewController {
 
+    @IBOutlet weak var questionLabel: UILabel!
+    
     @IBOutlet weak var answerText: UILabel!
+    
+    @IBOutlet weak var correctAnswerLabel: UILabel!
     
     @IBOutlet weak var nextButton: UIButton!
     
@@ -22,14 +26,16 @@ class AnswerScreenViewController: UIViewController {
         }
     }
     
-    
     @IBAction func answerHome(_ sender: Any) {
         performSegue(withIdentifier: "answerToHome", sender: self)
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        questionLabel.text = sampleQuestions[questionIndex - 1]
+        
+        correctAnswerLabel.text = "The correct answer is " + sampleCorrectAnswers[questionIndex - 1]
         
         if (correctAnswer) {
             answerText.text = "Right!"

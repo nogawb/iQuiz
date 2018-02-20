@@ -21,8 +21,13 @@ class QuestionScreenViewController: UIViewController {
     
     @IBOutlet weak var answer4: UIButton!
     
-    @IBAction func chosen1(_ sender: Any) {
-        selectedAnswer = ((sender as AnyObject).titleLabel??.text!)!
+    @IBAction func chosen1(_ sender: UIButton) {
+        selectedAnswer = (sender.titleLabel?.text!)!
+        answer1.backgroundColor = UIColor.white
+        answer2.backgroundColor = UIColor.white
+        answer3.backgroundColor = UIColor.white
+        answer4.backgroundColor = UIColor.white
+        sender.backgroundColor = UIColor.cyan
     }
     
     //submit answer button
