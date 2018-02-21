@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SystemConfiguration
 
     //subject object
     struct Subject: Decodable{
@@ -28,9 +29,6 @@ import UIKit
     var questionIndex = 0
     var numberCorrect = 0
     let list = ["Science", "Marvel Super Heroes", "Mathematics"]
-    let sampleQuestions = ["1+1=", "3+1=", "4-2= ", "2-1=", "4/2=", "4-1="]
-    let sampleAnswers = ["1", "2", "3", "4"]
-    let sampleCorrectAnswers = ["2", "3", "2", "1", "2", "3"]
     var correctAnswer = false
     var titles: [String] = []
     var descriptions: [String] = []
@@ -74,7 +72,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func downloadQuiz() {
-        
         //converts string to URL
         guard let inputURL = URL(string: url) else
         { return }
@@ -85,16 +82,51 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             //variable containing raw data
             guard let data = data else { return }
             
+            
+            
             do {
                 //decodes data into subject objects
                 let subjects = try JSONDecoder().decode([Subject].self, from: data)
                 jsonData = subjects
                 
+                //stores data locally
+                //UserDefaults.standard.set(jsonData, forKey: "getJson")
+                
             } catch let jsonErr {
                 print("Error serializing json:", jsonErr)
+                //jsonData = UserDefaults.standard.object(forKey: "getJson") as! [Subject]
             }
         }.resume()
         
+    }
+    
+    func isInternetAvailable() -> Bool
+    {
+        var zeroAddress = sockaddr_in()
+        zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
+        zeroAddress.sin_family = sa_family_t(AF_INET)
+        
+        let defaultRouteReachability = withUnsafePointer(to: &zeroAddress) {
+            $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {zeroSockAddress in
+                SCNetworkReachabilityCreateWithAddress(nil, zeroSockAddress)
+            }
+        }
+        
+        var flags = SCNetworkReachabilityFlags()
+        if !SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) {
+            return false
+        }
+        let isReachable = flags.contains(.reachable)
+        let needsConnection = flags.contains(.connectionRequired)
+        return (isReachable && !needsConnection)
+    }
+    
+    func notifyUser(_ message : String) {
+        let alert = UIAlertController(title: "Notification",
+                                      message: message,
+                                      preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
@@ -103,8 +135,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         numberCorrect = 0
         myIndex = 0
         correctAnswer = false
-        downloadQuiz()
-        
+        if isInternetAvailable(){
+            downloadQuiz()
+        } else {
+            self.notifyUser("Your device is not connected to the internet.")
+        }
     }
 
     override func didReceiveMemoryWarning() {

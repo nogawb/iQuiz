@@ -33,7 +33,7 @@ class AnswerScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        questionLabel.text = jsonData![myIndex].questions[questionIndex - 1].text
+        questionLabel.text = "Question: " + jsonData![myIndex].questions[questionIndex - 1].text
         
         correctAnswerLabel.text = "The correct answer is " + jsonData![myIndex].questions[questionIndex - 1].answers[Int(jsonData![myIndex].questions[questionIndex - 1].answer)! - 1]
         

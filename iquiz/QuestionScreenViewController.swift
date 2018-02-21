@@ -50,8 +50,6 @@ class QuestionScreenViewController: UIViewController {
         performSegue(withIdentifier: "questionToHome", sender: self)
     }
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         question.text = jsonData![myIndex].questions[questionIndex].text

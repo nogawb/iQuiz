@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		99311317203D516600D342CD /* savedJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 99311316203D516600D342CD /* savedJSON.json */; };
 		997236CD2036A30A00324D38 /* FinishedScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997236CC2036A30A00324D38 /* FinishedScreenViewController.swift */; };
 		99820C3D203161480060BF81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99820C3C203161480060BF81 /* AppDelegate.swift */; };
 		99820C3F203161480060BF81 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99820C3E203161480060BF81 /* ViewController.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		99311316203D516600D342CD /* savedJSON.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = savedJSON.json; sourceTree = "<group>"; };
 		997236CC2036A30A00324D38 /* FinishedScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedScreenViewController.swift; sourceTree = "<group>"; };
 		99820C39203161480060BF81 /* iquiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iquiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99820C3C203161480060BF81 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 		99820C3B203161480060BF81 /* iquiz */ = {
 			isa = PBXGroup;
 			children = (
+				99311316203D516600D342CD /* savedJSON.json */,
 				99820C3C203161480060BF81 /* AppDelegate.swift */,
 				99820C3E203161480060BF81 /* ViewController.swift */,
 				99820C5C20360A450060BF81 /* QuestionScreenViewController.swift */,
@@ -144,6 +147,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99311317203D516600D342CD /* savedJSON.json in Resources */,
 				99820C47203161480060BF81 /* LaunchScreen.storyboard in Resources */,
 				99820C44203161480060BF81 /* Assets.xcassets in Resources */,
 				99820C5A203176BF0060BF81 /* Science.jpg in Resources */,
