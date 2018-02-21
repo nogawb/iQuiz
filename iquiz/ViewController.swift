@@ -41,6 +41,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
        let alert = UIAlertController(title: "Setting Title", message: "If I had it it would be here", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Check now", style: UIAlertActionStyle.default, handler:{
+            (act: UIAlertAction) in
+            self.downloadQuiz()
+        }))
         
         present(alert, animated: true, completion: nil)
         
@@ -82,13 +86,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             //variable containing raw data
             guard let data = data else { return }
             
+            /*var filePath : String {
+                let manager = FileManager.default
+                let url = manager.urls(for: .documentDirectory, in: .userDomainMask).first as! NSURL
+                return url.appendingPathComponent("savedJSON.json")!.path
+            } */
             
+            //NSKeyedArchiver.archiveRootObject(data, toFile: filePath)
             
             do {
                 //decodes data into subject objects
                 let subjects = try JSONDecoder().decode([Subject].self, from: data)
                 jsonData = subjects
-                
+                print("Download Successful")
                 //stores data locally
                 //UserDefaults.standard.set(jsonData, forKey: "getJson")
                 
