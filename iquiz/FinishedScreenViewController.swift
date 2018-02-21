@@ -21,8 +21,9 @@ class FinishedScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        finishedLabel.text = "You got " + String(numberCorrect) + "/" + String(sampleQuestions.count) + " correct!"
-        if (numberCorrect <= sampleQuestions.count / 2) {
+        let numQuestions = jsonData![myIndex].questions.count
+        finishedLabel.text = "You got " + String(numberCorrect) + "/" + String(numQuestions) + " correct!"
+        if (numberCorrect <= numQuestions / 2) {
             feedback.text = "DO BETTER!"
         } else {
             feedback.text = "NICE JOB!"

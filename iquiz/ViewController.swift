@@ -8,24 +8,26 @@
 
 import UIKit
 
-    struct Subjects: Decodable{
+    //subject object
+    struct Subject: Decodable{
         let title: String
         let desc: String
         let questions: [Question]
     }
 
+    //Question obejct
     struct Question: Decodable{
         let text: String
         let answer: String
         let answers: [String]
     }
 
-    let url = URL(string: "http://tednewardsandbox.site44.com/questions.json")
-    var jsonData: [Subjects]? = nil
+    let url = "http://tednewardsandbox.site44.com/questions.json"
+    var jsonData: [Subject]? = nil
     var myIndex = 0
     var questionIndex = 0
     var numberCorrect = 0
-    let list = ["Mathematics", "Marvel Super Heroes", "Science"]
+    let list = ["Science", "Marvel Super Heroes", "Mathematics"]
     let sampleQuestions = ["1+1=", "3+1=", "4-2= ", "2-1=", "4/2=", "4-1="]
     let sampleAnswers = ["1", "2", "3", "4"]
     let sampleCorrectAnswers = ["2", "3", "2", "1", "2", "3"]
@@ -73,6 +75,25 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func downloadQuiz() {
         
+        //converts string to URL
+        guard let inputURL = URL(string: url) else
+        { return }
+        
+        //Goes to URL and pulls data
+        URLSession.shared.dataTask(with: inputURL) { (data, response, err) in
+            
+            //variable containing raw data
+            guard let data = data else { return }
+            
+            do {
+                //decodes data into subject objects
+                let subjects = try JSONDecoder().decode([Subject].self, from: data)
+                jsonData = subjects
+                
+            } catch let jsonErr {
+                print("Error serializing json:", jsonErr)
+            }
+        }.resume()
         
     }
     
@@ -82,37 +103,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         numberCorrect = 0
         myIndex = 0
         correctAnswer = false
-        /*let url = URL(string: "http://tednewardsandbox.site44.com/questions.json")
-        let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
-            if error != nil
-            {
-                print("ERROR")
-            }
-            else
-            {
-               if let content = data
-               {
-                    do
-                    {
-                       // let myJson = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
-                        //print(myJson)
-                        //let subjects = try JSONDecoder().decode(Subjects.self, from: content)
-                        //print(subjects)
-                        /*self.jsonData = subjects
-                        for s in subjects{
-                            self.titles.append(s.title)
-                            self.descriptions.append(s.desc)
-                        } */
-                    }
-                    catch
-                    {
-                        
-                    }
-                }
-            }
-            
-        }
-        task.resume()*/
+        downloadQuiz()
+        
     }
 
     override func didReceiveMemoryWarning() {

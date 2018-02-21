@@ -9,6 +9,7 @@
 import UIKit
 
 class QuestionScreenViewController: UIViewController {
+    let correctAnswerIndex = Int(jsonData![myIndex].questions[questionIndex].answer)
     var selectedAnswer = ""
     
     @IBOutlet weak var question: UILabel!
@@ -34,8 +35,7 @@ class QuestionScreenViewController: UIViewController {
     //when button is clicked transition to the answer screen
     
     @IBAction func submitAnswer(_ sender: Any) {
-        NSLog("The correct ans is " + sampleCorrectAnswers[questionIndex] + "// The selected answer is " + selectedAnswer)
-        if (selectedAnswer == sampleCorrectAnswers[questionIndex]) {
+        if (selectedAnswer == jsonData![myIndex].questions[questionIndex].answers[correctAnswerIndex! - 1]) {
             correctAnswer = true
             numberCorrect = numberCorrect + 1
         }
@@ -54,11 +54,11 @@ class QuestionScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        question.text = sampleQuestions[questionIndex]
-        answer1.setTitle(sampleAnswers[0], for: .normal)
-        answer2.setTitle(sampleAnswers[1], for: .normal)
-        answer3.setTitle(sampleAnswers[2], for: .normal)
-        answer4.setTitle(sampleAnswers[3], for: .normal)
+        question.text = jsonData![myIndex].questions[questionIndex].text
+        answer1.setTitle(jsonData![myIndex].questions[questionIndex].answers[0], for: .normal)
+        answer2.setTitle(jsonData![myIndex].questions[questionIndex].answers[1], for: .normal)
+        answer3.setTitle(jsonData![myIndex].questions[questionIndex].answers[2], for: .normal)
+        answer4.setTitle(jsonData![myIndex].questions[questionIndex].answers[3], for: .normal)
         
         // Do any additional setup after loading the view.
     }

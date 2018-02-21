@@ -19,7 +19,7 @@ class AnswerScreenViewController: UIViewController {
     @IBOutlet weak var nextButton: UIButton!
     
     @IBAction func nextQuestion(_ sender: Any) {
-        if (questionIndex >= sampleQuestions.count) {
+        if (questionIndex >= jsonData![myIndex].questions.count) {
             performSegue(withIdentifier: "answerToFinish", sender: self)
         } else {
             performSegue(withIdentifier: "answerToQuestion", sender: self)
@@ -33,9 +33,9 @@ class AnswerScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        questionLabel.text = sampleQuestions[questionIndex - 1]
+        questionLabel.text = jsonData![myIndex].questions[questionIndex - 1].text
         
-        correctAnswerLabel.text = "The correct answer is " + sampleCorrectAnswers[questionIndex - 1]
+        correctAnswerLabel.text = "The correct answer is " + jsonData![myIndex].questions[questionIndex - 1].answers[Int(jsonData![myIndex].questions[questionIndex - 1].answer)! - 1]
         
         if (correctAnswer) {
             answerText.text = "Right!"
@@ -45,7 +45,7 @@ class AnswerScreenViewController: UIViewController {
         
         correctAnswer = false
         
-        if (questionIndex >= sampleQuestions.count) {
+        if (questionIndex >= jsonData![myIndex].questions.count) {
             nextButton.setTitle("Finish Test", for: .normal)
         } else {
            nextButton.setTitle("Next Question", for: .normal)
